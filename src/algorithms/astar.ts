@@ -1,3 +1,4 @@
+import
 import type { NodeType } from "../types/Node";
 
 function getNeighbors(node: NodeType, grid: NodeType[][]) {
