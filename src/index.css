@@ -1,0 +1,165 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.header p {
+  margin-top: 8px;
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.controls button {
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+}
+.controls select {
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #334155;
+  color: white;
+}
+
+.controls button:hover {
+  background: #1d4ed8;
+}
+
+.legend {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legend-node {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.grid-container {
+  overflow-x: auto;
+  padding: 20px;
+  background: #1e293b;
+  border-radius: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(40, 25px);
+  width: max-content;
+  margin: 0 auto;
+}
+
+.node {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #334155;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.node:hover {
+  opacity: 0.8;
+}
+
+.start {
+  background-color: #22c55e;
+}
+
+.finish {
+  background-color: #ef4444;
+}
+
+.wall {
+  background-color: #020617;
+}
+
+.visited {
+  background-color: #38bdf8;
+}
+
+.path {
+  background-color: #facc15;
+}
+.node.weighted {
+  background-color: #a855f7;
+}
+.stats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 15px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.stats strong {
+  color: #f8fafc;
+}
+
+.status strong {
+  color: #f8fafc;
+}
+.controls button:disabled,
+.controls select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.node.visited-weighted {
+  background-color: #c084fc;
+}
+.legend-node.weighted {
+  background-color: #a855f7;
+}
