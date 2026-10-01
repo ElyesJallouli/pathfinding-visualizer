@@ -1,75 +1,135 @@
-# React + TypeScript + Vite
+# Pathfinding Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive pathfinding algorithm visualizer built with **React** and **TypeScript**. The application demonstrates how different pathfinding algorithms explore a grid and determine an optimal path between a start and finish node.
 
-Currently, two official plugins are available:
+An interactive pathfinding algorithm visualizer built with React and TypeScript...
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Demo
 
-## React Compiler
+![Pathfinding Visualizer demonstrating A* search](assets/pathfinding-visualizer.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Visualize **Breadth-First Search (BFS)**
+- Visualize **Dijkstra's Algorithm**
+- Visualize **A\* Search**
+- Animated node exploration
+- Shortest-path visualization
+- Create and remove walls interactively
+- Add weighted nodes to simulate higher traversal costs
+- Generate random walls
+- Clear the current path or reset the entire board
+- Live visited-node counter
+- Path length displayed after completion
+- Status indicator for algorithm execution
+- Controls are locked during visualization to prevent conflicting animations
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Algorithms
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Breadth-First Search
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+BFS explores nodes level by level. On an unweighted grid, it guarantees a shortest path based on the number of steps.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+BFS does not take weighted nodes into account.
 
+### Dijkstra's Algorithm
+
+Dijkstra's algorithm finds a minimum-cost path by always exploring the node with the lowest known distance from the start.
+
+Unlike BFS, weighted nodes affect the path selected by Dijkstra.
+
+### A* Search
+
+A* combines the cost of reaching a node with an estimate of the remaining distance to the destination.
+
+This project uses **Manhattan distance** as the heuristic:
+
+`|currentRow - finishRow| + |currentCol - finishCol|`
+
+A* also takes weighted nodes into account.
+
+## Grid Controls
+
+| Action | Result |
+| --- | --- |
+| Left click | Add or remove a wall |
+| Right click | Add or remove a weighted node |
+| Visualize | Run the selected algorithm |
+| Random Walls | Generate a random wall configuration |
+| Clear Path | Remove the visualization while preserving the board |
+| Clear Board | Reset the entire grid |
+
+## Legend
+
+- **Green** — Start node
+- **Red** — Finish node
+- **Black** — Wall
+- **Purple** — Weighted node
+- **Blue** — Visited node
+- **Yellow** — Shortest path
+
+Weighted nodes have a traversal cost of **5**, while regular nodes have a traversal cost of **1**.
+
+## Technologies
+
+- React
+- TypeScript
+- Vite
+- CSS
+- Git / GitHub
+
+## Running Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/ElyesJallouli/pathfinding-visualizer.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Move into the project:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+cd pathfinding-visualizer
 ```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open the local address displayed by Vite in your browser.
+
+## What I Learned
+
+This project helped me practice:
+
+- Implementing graph-search and pathfinding algorithms
+- Comparing weighted and unweighted pathfinding
+- Reconstructing shortest paths
+- React state management
+- TypeScript interfaces and component props
+- Creating animated algorithm visualizations
+- Building interactive grid-based user interfaces
+
+## Future Improvements
+
+Possible future additions include:
+
+- Drag-and-drop start and finish nodes
+- Additional maze-generation algorithms
+- Adjustable visualization speed
+- Additional pathfinding algorithms
+- Improved mobile responsiveness
+
+## Author
+
+**Elyes Jallouli**
+
+Software Engineering student at Concordia University
